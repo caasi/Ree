@@ -1,4 +1,4 @@
-Ree
+Ree [![Build Status](https://secure.travis-ci.org/caasi/Ree.png)](http://travis-ci.org/caasi/Ree)
 ===
 
 Ree is a object proxy that emit your controls.
