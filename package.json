@@ -1,5 +1,5 @@
 {
-  "name": "ree",
+  "name": "Ree",
   "version": "0.1.0",
   "author": "caasi Huang <caasi.igd@gmail.com>",
   "description": "a object proxy that emit controls",
@@ -10,7 +10,7 @@
   "main": "./lib/ree",
   "repository": {
     "type": "git",
-    "url": "https://github.com/caasi/ree.git"
+    "url": "https://github.com/caasi/Ree.git"
   },
   "keywords": [
     "event tree",
