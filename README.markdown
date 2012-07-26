@@ -1,0 +1,15 @@
+Ree
+===
+
+Ree is a object proxy that emit your controls.
+
+Depends on
+----------
+
+*   [underscore](http://underscorejs.org)
+*   [EventEmitter2](https://github.com/hij1nx/EventEmitter2)
+
+Test by
+-------
+
+*   [nodeunit](https://github.com/caolan/nodeunit)
