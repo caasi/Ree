@@ -1,5 +1,5 @@
 var EventEmitter2 = require("eventemitter2").EventEmitter2;
-var Ree           = require("./ree");
+var Ree           = require("./lib/ree");
 
 module.exports = {
   setUp: function(cc) {
