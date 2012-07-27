@@ -4,14 +4,14 @@ var Ree           = require("./lib/ree");
 module.exports = {
   setUp: function(cc) {
     this.anderson = {
-      str: "anderson",
+      name: "anderson",
       male: true,
       age: 28,
       learn: function() {},
       say: function() {
         this.emit("say", "gunz");
       },
-      children: ["nokia 8110"]
+      items: ["nokia 8110"]
     };
 
     /* emitterception */
@@ -28,10 +28,10 @@ module.exports = {
     cc();
   },
   basic: function(test) {
-    test.equal(this.anderson.str, this.agent.str);
+    test.equal(this.anderson.name, this.agent.name);
     test.equal(this.anderson.male, this.agent.male);
     test.equal(this.anderson.age, this.agent.age);
-    test.deepEqual(this.anderson.children, this.agent.children);
+    test.equal(this.anderson.items[0], this.agent.items[0]);
 
     test.expect(4);
     test.done();
@@ -67,6 +67,42 @@ module.exports = {
     test.equal(this.anderson.age, 28);
 
     test.expect(2);
+    test.done();
+  },
+  array: function(test) {
+    var count = 0;
+
+    this.agent.on("bubble", function(cmd) {
+      switch(count) {
+        case 0:
+          test.deepEqual(cmd, { type: "msg", keypath: ["items", "push"], args: ["foobar"] });
+          break;
+        case 1:
+          test.deepEqual(cmd, { type: "msg", keypath: ["items", "pop"], args: [] });
+          break;
+        case 2:
+          test.deepEqual(cmd, { type: "msg", keypath: ["items", "pop"], args: [] });
+          break;
+        case 3:
+          test.deepEqual(cmd, { type: "msg", keypath: ["items", "unshift"], args: ["bar", "foo"] });
+          break;
+      }
+      count += 1;
+    });
+
+    this.agent.items.push("foobar");
+    this.agent.items.pop();
+    this.agent.items.pop();
+    this.agent.items.unshift("bar", "foo");
+
+    test.equal(this.anderson.items[0], this.agent.items[0]);
+    test.equal(this.anderson.items[1], this.agent.items[1]);
+
+    this.agent.items[0] = "fooo";
+
+    test.equal(this.anderson.items[0], this.agent.items[0]);
+
+    test.expect(7);
     test.done();
   }
 };
