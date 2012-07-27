@@ -58,5 +58,15 @@ module.exports = {
 
     test.expect(2);
     test.done();
+  },
+  execute: function(test) {
+    Ree.exec(this.agent, { type: "set", keypath: ["age"], args: [29] });
+    test.equal(this.anderson.age, 29);
+
+    Ree.exec(this.anderson, { type: "set", keypath: ["age"], args: [28] });
+    test.equal(this.anderson.age, 28);
+
+    test.expect(2);
+    test.done();
   }
 };
