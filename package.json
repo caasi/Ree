@@ -1,6 +1,6 @@
 {
   "name": "ree",
-  "version": "0.1.1-1",
+  "version": "0.1.1-2",
   "author": "caasi Huang <caasi.igd@gmail.com>",
   "description": "a object proxy that emit controls",
   "contributors": [],
