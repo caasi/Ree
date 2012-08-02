@@ -17,4 +17,4 @@ Test by
 ToDo
 ----
 
-*   Think about exec deeply.
+*   Think about exec deeply, still buggy when you mix-use object and it's agent.

@@ -7,6 +7,9 @@ module.exports = {
       name: "anderson",
       male: true,
       age: 28,
+      incAge: function() {
+        this.age += 1;
+      },
       learn: function() {},
       say: function() {
         this.emit("say", "gunz");
@@ -103,6 +106,17 @@ module.exports = {
     test.equal(this.anderson.items[0], this.agent.items[0]);
 
     test.expect(7);
+    test.done();
+  },
+  object: function(test) {
+    this.anderson.incAge();
+    test.equal(this.anderson.age, 29);
+    test.equal(this.agent.age, 29);
+    this.agent.incAge();    
+    test.equal(this.anderson.age, 30);
+    test.equal(this.agent.age, 30);
+
+    test.expect(4);
     test.done();
   }
 };
